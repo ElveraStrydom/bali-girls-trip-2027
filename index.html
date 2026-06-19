@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌺 Bali Girls Trip — May 2027</title>
+<style>
+:root {
+  color-scheme: light;
+  --ocean:     #006B6B;
+  --ocean-d:   #004F4F;
+  --ocean-l:   #D4F0F0;
+  --ocean-xl:  #EDF9F9;
+  --sunset:    #E8704A;
+  --sunset-d:  #B84A25;
+  --sunset-l:  #FDF0EB;
+  --gold:      #D4A017;
+  --gold-d:    #7A5C00;
+  --gold-l:    #FEF8E1;
+  --sand:      #F7F0E6;
+  --palm:      #2D6A4F;
+  --palm-l:    #E8F5EE;
+  --warn:      #C0392B;
+  --warn-l:    #FDECEA;
+  --gray:      #666;
+  --gray-l:    #F4F4F4;
+  --dark:      #1A1A1A;
+  --white:     #FFFFFF;
+  --shadow:    0 4px 20px rgba(0,0,0,0.1);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.07);
+  --radius:    16px;
+  --radius-sm: 10px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', system-ui, Arial, sans-serif;
+  background: var(--sand);
+  color: var(--dark);
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ════════ HERO ════════ */
+.hero {
+  background: linear-gradient(160deg, #004F4F 0%, #006B6B 35%, #008080 60%, #2D8B8B 80%, #1B6B6B 100%);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 600px 300px at 80% 50%, rgba(232,112,74,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 400px 400px at 10% 80%, rgba(212,160,23,0.12) 0%, transparent 60%);
+}
+/* Decorative palm leaves */
+.hero::after {
+  content: '🌴';
+  position: absolute; right: -10px; bottom: -20px;
+  font-size: 180px; opacity: 0.12; transform: rotate(-15deg);
+  pointer-events: none;
+}
+.palm-left {
+  position: absolute; left: -20px; top: -30px;
+  font-size: 160px; opacity: 0.1; transform: rotate(20deg) scaleX(-1);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 48px 32px 40px;
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.hero-emoji { font-size: 52px; margin-bottom: 12px; display: block; }
+.hero-title {
+  font-size: 40px; font-weight: 800; color: white;
+  letter-spacing: -0.5px; line-height: 1.1;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+.hero-title span { color: #F4C842; }
+.hero-sub {
+  font-size: 17px; color: rgba(255,255,255,0.85);
+  margin-top: 10px; font-weight: 400;
+}
+.hero-badges {
+  display: flex; gap: 10px; margin-top: 22px; flex-wrap: wrap; justify-content: center;
+}
+.hero-badge {
+  background: rgba(255,255,255,0.15);
+  border: 1.5px solid rgba(255,255,255,0.35);
+  color: white; font-size: 13px; font-weight: 600;
+  padding: 8px 16px; border-radius: 30px;
+  backdrop-filter: blur(4px);
+}
+.hero-badge.hot { background: rgba(232,112,74,0.5); border-color: rgba(232,112,74,0.7); }
+
+/* Wave divider */
+.wave { display: block; width: 100%; height: 48px; background: var(--sand); }
+.wave-top { clip-path: ellipse(55% 100% at 50% 0%); }
+
+/* ════════ NAV ════════ */
+.nav-bar {
+  background: white;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  position: sticky; top: 0; z-index: 200;
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; overflow-x: auto;
+  gap: 0; scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-btn {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 14px 20px; border: none; background: none; cursor: pointer;
+  color: var(--gray); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  border-bottom: 3px solid transparent; white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s;
+  position: relative; gap: 3px;
+}
+.nav-btn .nav-icon { font-size: 20px; }
+.nav-btn:hover { color: var(--ocean); }
+.nav-btn.active { color: var(--ocean); border-bottom-color: var(--ocean); }
+.nav-badge {
+  position: absolute; top: 8px; right: 10px;
+  background: var(--sunset); color: white;
+  font-size: 9px; font-weight: 800;
+  width: 17px; height: 17px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.nav-badge[data-count="0"] { display: none; }
+
+/* ════════ PAGE ════════ */
+.page { max-width: 1100px; margin: 0 auto; padding: 28px 16px 60px; }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ════════ SECTION HEADER ════════ */
+.section-hdr {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 24px;
+}
+.section-hdr-icon {
+  width: 56px; height: 56px; border-radius: 16px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 28px;
+}
+.section-hdr-icon.teal { background: var(--ocean-l); }
+.section-hdr-icon.gold { background: var(--gold-l); }
+.section-hdr h2 { font-size: 26px; font-weight: 800; color: var(--ocean-d); }
+.section-hdr.gold h2 { color: var(--gold-d); }
+.section-hdr p { font-size: 13px; color: var(--gray); margin-top: 2px; }
+
+/* ════════ OVERVIEW ════════ */
+.overview-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 720px) { .overview-cols { grid-template-columns: 1fr; } }
+
+.card {
+  background: white; border-radius: var(--radius);
+  box-shadow: var(--shadow-sm); border: 1px solid rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+.card-head {
+  padding: 18px 22px 14px;
+  border-bottom: 1px solid var(--gray-l);
+  display: flex; align-items: center; gap: 12px;
+}
+.card-head-icon { font-size: 24px; }
+.card-head-title { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.7px; color: var(--ocean-d); }
+.card-head.gold .card-head-title { color: var(--gold-d); }
+.card-body-pad { padding: 16px 22px; }
+.info-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 9px 0; border-bottom: 1px solid var(--gray-l); gap: 12px;
+  font-size: 14px;
+}
+.info-row:last-child { border-bottom: none; }
+.info-row .lbl { color: var(--gray); flex-shrink: 0; }
+.info-row .val { font-weight: 700; color: var(--ocean-d); text-align: right; }
+.info-row .val.sunset { color: var(--sunset-d); }
+
+.highlight-card {
+  background: linear-gradient(135deg, var(--ocean-xl) 0%, var(--ocean-l) 100%);
+  border: 1.5px solid var(--ocean-l);
+  border-radius: var(--radius); padding: 20px 24px;
+}
+.highlight-card.gold-h {
+  background: linear-gradient(135deg, var(--gold-l) 0%, #FFF3D0 100%);
+  border-color: #F0DCA0;
+}
+.highlight-card h3 { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.7px; color: var(--ocean-d); margin-bottom: 12px; }
+.highlight-card.gold-h h3 { color: var(--gold-d); }
+.highlight-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.highlight-card ul li { font-size: 14px; color: var(--dark); display: flex; gap: 10px; }
+.highlight-card ul li::before { content: '✦'; color: var(--ocean); flex-shrink: 0; font-size: 12px; margin-top: 2px; }
+.highlight-card.gold-h ul li::before { color: var(--gold-d); }
+
+.legend-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 20px;
+}
+.pill.must   { background: var(--warn-l);  color: var(--warn);   }
+.pill.rec    { background: var(--ocean-l); color: var(--ocean-d);}
+.pill.opt    { background: var(--gray-l);  color: var(--gray);   }
+.pill.book   { background: var(--gold-l);  color: var(--gold-d); }
+.pill.cash   { background: #E6F7F0;        color: #1A6B50;       }
+.pill.caution{ background: var(--warn-l);  color: var(--warn);   }
+
+.divider-sm { height: 16px; }
+
+/* ════════ FILTER BAR ════════ */
+.filter-wrap { margin-bottom: 22px; }
+.filter-label-text { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--gray); margin-bottom: 10px; }
+.filter-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.filt {
+  padding: 9px 18px; border-radius: 30px; border: 2px solid var(--gray-l);
+  background: white; font-size: 13px; font-weight: 700; cursor: pointer; color: var(--gray);
+  transition: all 0.2s; display: flex; align-items: center; gap: 6px;
+}
+.filt:hover { border-color: var(--ocean); color: var(--ocean); }
+.filt.on     { background: var(--ocean); color: white; border-color: var(--ocean); }
+.filt.on.g2  { background: var(--gold-d);  border-color: var(--gold-d);  }
+.filt.on.g3  { background: var(--gray);    border-color: var(--gray);    }
+
+/* ════════ ACTIVITY CARDS ════════ */
+.activities { display: grid; gap: 18px; }
+.act-card {
+  background: white; border-radius: var(--radius);
+  box-shadow: var(--shadow-sm); border: 1.5px solid rgba(0,0,0,0.07);
+  overflow: hidden; transition: box-shadow 0.2s, transform 0.2s;
+}
+.act-card:hover { box-shadow: var(--shadow); transform: translateY(-1px); }
+.act-card.planned { border-color: var(--ocean); border-width: 2px; }
+
+.act-top {
+  padding: 18px 22px 14px;
+  display: flex; gap: 14px; align-items: flex-start;
+}
+.act-num {
+  min-width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+  background: var(--ocean-xl); color: var(--ocean-d);
+  font-size: 14px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center; margin-top: 2px;
+}
+.act-meta { flex: 1; }
+.act-name { font-size: 17px; font-weight: 800; color: var(--dark); line-height: 1.25; }
+.act-rating-row { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+.act-stars { font-size: 14px; }
+.act-rlabel {
+  font-size: 11px; font-weight: 800; padding: 3px 10px; border-radius: 12px;
+  letter-spacing: 0.5px; text-transform: uppercase;
+}
+.act-rlabel.must { background: var(--warn-l); color: var(--warn); }
+.act-rlabel.rec  { background: var(--ocean-l); color: var(--ocean-d); }
+.act-rlabel.opt  { background: var(--gray-l); color: var(--gray); }
+
+.act-mid { padding: 0 22px 14px; }
+.act-tips { font-size: 14px; color: #333; line-height: 1.6; margin-bottom: 12px; }
+.act-flags { display: flex; flex-direction: column; gap: 5px; }
+.flag {
+  display: inline-flex; align-items: flex-start; gap: 6px;
+  font-size: 12px; padding: 5px 11px; border-radius: 10px;
+  width: fit-content; line-height: 1.4;
+}
+.flag .flbl { font-weight: 800; flex-shrink: 0; }
+.flag .fdsc { font-weight: 400; }
+.flag.warn  { background: var(--warn-l);  color: var(--warn);   }
+.flag.cash  { background: #E6F7F0;        color: #1A6B50;       }
+.flag.info  { background: var(--gold-l);  color: var(--gold-d); }
+
+.act-bottom {
+  padding: 14px 22px 18px;
+  border-top: 1px solid var(--gray-l);
+  display: flex; gap: 12px; align-items: stretch; flex-wrap: wrap;
+}
+.act-price {
+  flex: 1; min-width: 140px;
+  background: var(--ocean-xl); border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 14px; font-weight: 800; color: var(--ocean-d);
+  white-space: pre-line; line-height: 1.45;
+}
+.act-actions { display: flex; flex-direction: column; gap: 8px; min-width: 140px; }
+.btn-source {
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+  font-size: 12px; font-weight: 700; color: #0066CC;
+  text-decoration: none; padding: 9px 14px; border-radius: 10px;
+  border: 2px solid #0066CC; transition: all 0.2s;
+}
+.btn-source:hover { background: #0066CC; color: white; }
+.btn-add {
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+  font-size: 13px; font-weight: 800; padding: 9px 14px; border-radius: 10px;
+  border: 2px solid var(--ocean); color: var(--ocean); background: white; cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-add:hover { background: var(--ocean); color: white; }
+.btn-add.on { background: var(--ocean); color: white; }
+
+/* notes */
+.act-notes { padding: 0 22px 14px; }
+.notes-tog {
+  font-size: 12px; color: var(--gray); cursor: pointer; background: none; border: none;
+  text-decoration: underline; text-underline-offset: 2px; padding: 0;
+}
+.notes-tog:hover { color: var(--ocean); }
+.notes-ta {
+  display: none; width: 100%; margin-top: 8px;
+  padding: 10px 12px; border-radius: 10px;
+  border: 2px solid var(--gray-l); font-family: inherit; font-size: 13px;
+  resize: vertical; min-height: 70px; color: var(--dark); background: var(--gray-l);
+}
+.notes-ta:focus { outline: none; border-color: var(--ocean); background: white; }
+.notes-ta.show { display: block; }
+.notes-ok { font-size: 11px; color: var(--palm); margin-top: 4px; display: none; }
+
+/* ════════ BUDGET TABLE ════════ */
+.budget-title { font-size: 16px; font-weight: 800; color: var(--ocean-d); margin: 28px 0 12px; }
+.budget-title.gold { color: var(--gold-d); }
+.budget-wrap { background: white; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid rgba(0,0,0,0.07); }
+.btbl { width: 100%; border-collapse: collapse; }
+.btbl thead th { padding: 12px 18px; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px; color: white; background: var(--ocean-d); text-align: left; }
+.btbl.gold thead th { background: var(--gold-d); }
+.btbl tbody tr:nth-child(even) td { background: var(--ocean-xl); }
+.btbl.gold tbody tr:nth-child(even) td { background: var(--gold-l); }
+.btbl td { padding: 11px 18px; font-size: 14px; border-bottom: 1px solid var(--gray-l); }
+.btbl td:last-child { font-weight: 800; color: var(--ocean-d); }
+.btbl.gold td:last-child { color: var(--gold-d); }
+.btbl tbody tr:last-child td { border-bottom: none; }
+
+/* ════════ MY PLAN ════════ */
+.plan-empty {
+  text-align: center; padding: 64px 24px;
+  background: white; border-radius: var(--radius);
+  box-shadow: var(--shadow-sm); border: 1.5px dashed var(--ocean-l);
+}
+.plan-empty .big-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+.plan-empty h3 { font-size: 20px; font-weight: 800; color: var(--ocean-d); margin-bottom: 8px; }
+.plan-empty p { font-size: 14px; color: var(--gray); max-width: 400px; margin: 0 auto; }
+
+.plan-loc-title {
+  font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.7px;
+  color: var(--ocean-d); margin: 24px 0 12px; padding-bottom: 8px;
+  border-bottom: 2px solid var(--ocean-l);
+  display: flex; align-items: center; gap: 8px;
+}
+.plan-items { display: flex; flex-direction: column; gap: 10px; }
+.plan-item {
+  background: white; border-radius: var(--radius-sm);
+  padding: 14px 18px; box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0,0,0,0.07);
+  display: flex; align-items: center; gap: 14px;
+}
+.plan-item-text { flex: 1; }
+.plan-item-name { font-size: 15px; font-weight: 700; }
+.plan-item-loc { font-size: 12px; color: var(--gray); margin-top: 1px; }
+.plan-item-price {
+  font-size: 13px; font-weight: 800; color: var(--ocean-d);
+  white-space: pre-line; text-align: right; min-width: 130px;
+}
+.plan-remove {
+  background: none; border: none; cursor: pointer; font-size: 20px;
+  color: #CCC; padding: 4px; border-radius: 8px; line-height: 1;
+  transition: color 0.15s;
+}
+.plan-remove:hover { color: var(--warn); }
+.plan-summary {
+  margin-top: 24px; background: linear-gradient(135deg, var(--ocean-xl) 0%, var(--ocean-l) 100%);
+  border-radius: var(--radius); padding: 20px 24px;
+  border: 1.5px solid var(--ocean-l);
+}
+.plan-summary strong { font-size: 18px; color: var(--ocean-d); }
+.plan-summary p { font-size: 13px; color: var(--gray); margin-top: 8px; }
+
+/* ════════ TIPS ════════ */
+.tips-list { display: flex; flex-direction: column; gap: 12px; }
+.tip-item {
+  background: white; border-radius: var(--radius-sm);
+  padding: 16px 20px; box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0,0,0,0.07);
+  display: flex; gap: 14px; align-items: flex-start;
+}
+.tip-icon { font-size: 24px; flex-shrink: 0; }
+.tip-text { font-size: 14px; color: var(--dark); line-height: 1.6; }
+.tip-text strong { color: var(--ocean-d); }
+
+/* ════════ SOURCES ════════ */
+.sources-intro {
+  background: var(--palm-l); border-radius: var(--radius-sm); padding: 14px 18px;
+  font-size: 13px; color: var(--palm); font-weight: 600; margin-bottom: 18px;
+  border-left: 4px solid var(--palm);
+}
+.src-list { display: flex; flex-direction: column; gap: 8px; }
+.src-item {
+  background: white; border-radius: var(--radius-sm); padding: 12px 18px;
+  box-shadow: var(--shadow-sm); border: 1px solid rgba(0,0,0,0.06);
+  display: flex; gap: 12px; align-items: center;
+}
+.src-n { font-size: 12px; font-weight: 800; color: var(--ocean); min-width: 26px; }
+.src-info { flex: 1; }
+.src-name { font-size: 13px; font-weight: 700; color: var(--dark); }
+.src-link { font-size: 11px; color: #0066CC; text-decoration: none; }
+.src-link:hover { text-decoration: underline; }
+.currency-note {
+  margin-top: 18px; background: var(--gold-l); border-radius: var(--radius-sm);
+  padding: 12px 18px; font-size: 13px; color: var(--gold-d); font-weight: 600;
+  border-left: 4px solid var(--gold);
+}
+
+/* ════════ FLOATING HELP ════════ */
+.float-tip {
+  position: fixed; bottom: 24px; right: 20px;
+  background: var(--ocean); color: white;
+  padding: 10px 18px; border-radius: 30px;
+  font-size: 13px; font-weight: 700; box-shadow: 0 4px 20px rgba(0,107,107,0.5);
+  pointer-events: none; opacity: 0; transition: opacity 0.4s;
+  z-index: 999;
+}
+.float-tip.show { opacity: 1; }
+
+/* ════════ RESPONSIVE ════════ */
+@media (max-width: 600px) {
+  .hero-inner { padding: 36px 16px 32px; }
+  .hero-title { font-size: 28px; }
+  .nav-btn { padding: 10px 14px; font-size: 10px; }
+  .nav-btn .nav-icon { font-size: 18px; }
+  .page { padding: 20px 12px 60px; }
+  .act-bottom { flex-direction: column; }
+  .act-actions { flex-direction: row; }
+  .plan-item-price { min-width: auto; }
+}
+
+/* ════════ ANIMATIONS ════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.tab-panel.active { animation: fadeUp 0.3s ease; }
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="palm-left">🌴</div>
+  <div class="hero-inner">
+    <span class="hero-emoji">🌺✈️🌊</span>
+    <h1 class="hero-title">Bali Girls Trip<br><span>May 2027</span> 🎉</h1>
+    <p class="hero-sub">10 nights · Legian beach life + Ubud jungle magic<br>Everything you need to plan the perfect trip</p>
+    <div class="hero-badges">
+      <span class="hero-badge">🏖 Legian  9–15 May</span>
+      <span class="hero-badge">🌿 Ubud  15–19 May</span>
+      <span class="hero-badge hot">🔥 20 handpicked activities</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="go('overview',this)">
+      <span class="nav-icon">🗺️</span>Overview
+    </button>
+    <button class="nav-btn" onclick="go('legian',this)">
+      <span class="nav-icon">🏖️</span>Legian
+    </button>
+    <button class="nav-btn" onclick="go('ubud',this)">
+      <span class="nav-icon">🌿</span>Ubud
+    </button>
+    <button class="nav-btn" onclick="go('plan',this)">
+      <span class="nav-icon">📋</span>My Plan
+      <span class="nav-badge" id="plan-badge">0</span>
+    </button>
+    <button class="nav-btn" onclick="go('tips',this)">
+      <span class="nav-icon">💡</span>Tips
+    </button>
+    <button class="nav-btn" onclick="go('sources',this)">
+      <span class="nav-icon">🔗</span>Sources
+    </button>
+  </div>
+</nav>
+
+<!-- ═══ CONTENT ═══ -->
+<div class="page">
+
+<!-- ─── OVERVIEW ─── -->
+<section class="tab-panel active" id="tab-overview">
+  <div class="overview-cols">
+    <div style="display:flex;flex-direction:column;gap:18px;">
+
+      <div class="card">
+        <div class="card-head">
+          <span class="card-head-icon">✈️</span>
+          <span class="card-head-title">The Trip</span>
+        </div>
+        <div class="card-body-pad">
+          <div class="info-row"><span class="lbl">Location 1</span><span class="val">Legian, Kuta &amp; Seminyak</span></div>
+          <div class="info-row"><span class="lbl">📅 Dates</span><span class="val">9–15 May 2027  (6 nights)</span></div>
+          <div class="info-row"><span class="lbl">🏨 Hotel</span><span class="val">Astagina Resort Villa &amp; Spa</span></div>
+          <div class="info-row"><span class="lbl">Location 2</span><span class="val">Ubud</span></div>
+          <div class="info-row"><span class="lbl">📅 Dates</span><span class="val">15–19 May 2027  (4 nights)</span></div>
+          <div class="info-row"><span class="lbl">🏨 Hotel</span><span class="val">Sakti Garden Resort &amp; Spa</span></div>
+          <div class="info-row"><span class="lbl">☀️ Weather</span><span class="val">Dry season · 28–32°C · Low humidity</span></div>
+          <div class="info-row"><span class="lbl">💱 Rate used</span><span class="val">1 USD ≈ R16.18</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <span class="card-head-icon">💰</span>
+          <span class="card-head-title">Budget Reference</span>
+        </div>
+        <div class="card-body-pad">
+          <div class="info-row"><span class="lbl">Relaxed beach day (Legian)</span><span class="val">R200–R600</span></div>
+          <div class="info-row"><span class="lbl">Active adventure day (Legian)</span><span class="val">R800–R1,100</span></div>
+          <div class="info-row"><span class="lbl">Temple trip (Uluwatu / Tanah Lot)</span><span class="val">R300–R650</span></div>
+          <div class="info-row"><span class="lbl">Free day (Ubud ridge walk etc.)</span><span class="val">R200–R400</span></div>
+          <div class="info-row"><span class="lbl">Cooking class (Ubud, private)</span><span class="val">R1,117–R1,262</span></div>
+          <div class="info-row"><span class="lbl">Adventure day (ATV / rafting)</span><span class="val">R485–R647</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <span class="card-head-icon">📖</span>
+          <span class="card-head-title">How to Read</span>
+        </div>
+        <div class="card-body-pad">
+          <p style="font-size:13px;color:var(--gray);margin-bottom:12px;">Each activity is rated and flagged to help you decide quickly:</p>
+          <div class="legend-row" style="margin-bottom:10px;">
+            <span class="pill must">⭐⭐⭐ MUST DO</span>
+            <span class="pill rec">⭐⭐ RECOMMENDED</span>
+            <span class="pill opt">⭐ OPTIONAL</span>
+          </div>
+          <div class="legend-row">
+            <span class="pill book">📅 Book Ahead</span>
+            <span class="pill caution">⚠️ Watch Out</span>
+            <span class="pill cash">💵 Cash Needed</span>
+          </div>
+          <p style="font-size:13px;color:var(--gray);margin-top:14px;">Hit <strong style="color:var(--ocean)">+ Add to Plan</strong> on anything you like. They'll save to your <strong>My Plan</strong> tab automatically.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:18px;">
+      <div class="highlight-card">
+        <h3>🏖️ Legian — Our Highlights</h3>
+        <ul>
+          <li>Mix a surf lesson at dawn + Uluwatu Kecak sunset + beach club sundowner at Potato Head or Ku De Ta — that's a near-perfect Legian day.</li>
+          <li>The Jimbaran seafood dinner on the sand at sunset is a Bali essential. One of the true iconic experiences on the island.</li>
+          <li>Book at least two side-street spa sessions — the value vs. a hotel spa is night and day. Budget R77–R137 for bliss.</li>
+          <li>For Tanah Lot: hire a private driver for the group and split — far cheaper and more flexible than a guided tour.</li>
+        </ul>
+      </div>
+      <div class="highlight-card gold-h">
+        <h3>🌿 Ubud — Our Highlights</h3>
+        <ul>
+          <li>The cooking class (Putu's or Dewa's private village) is worth every rand — near-perfect reviews, a genuinely cultural experience.</li>
+          <li>The Campuhan Ridge Walk is free, stunning, and can be done before breakfast. Start before 07:00.</li>
+          <li>Cretya Ubud jungle pool bar is spectacular — book the VIP daybed; the min spend covers your whole afternoon.</li>
+          <li>Dance at Ubud Palace: genuinely beautiful, NOT touristy — costs under R140 and is a true Ubud essential.</li>
+          <li>Visit Tirta Empul + Goa Gajah together as a half-day driver trip — profound and easy to combine.</li>
+        </ul>
+      </div>
+      <div class="card" style="background:linear-gradient(135deg,#FFF8F0 0%,#FFF3E6 100%);border-color:#F0D5BB;">
+        <div class="card-body-pad" style="display:flex;gap:12px;align-items:flex-start;">
+          <span style="font-size:28px;">📱</span>
+          <div>
+            <div style="font-size:14px;font-weight:800;color:#7A4A00;margin-bottom:6px;">Download GRAB before you fly</div>
+            <div style="font-size:13px;color:#6B4A20;line-height:1.5;">It's Bali's version of Uber — safe, reliable, and a fraction of the cost of hotel taxis or beach touts. Set it up at home so you're ready on arrival.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── LEGIAN ─── -->
+<section class="tab-panel" id="tab-legian">
+  <div class="section-hdr">
+    <div class="section-hdr-icon teal">🏖️</div>
+    <div>
+      <h2>Legian, Kuta &amp; Seminyak</h2>
+      <p>9–15 May 2027 · 6 nights · Astagina Resort Villa &amp; Spa</p>
+    </div>
+  </div>
+
+  <div class="filter-wrap">
+    <div class="filter-label-text">Show me:</div>
+    <div class="filter-btns">
+      <button class="filt on" onclick="filt('legian','all',this)">All 10</button>
+      <button class="filt" onclick="filt('legian','must',this)">⭐⭐⭐ Must Do</button>
+      <button class="filt g2" onclick="filt('legian','rec',this)">⭐⭐ Recommended</button>
+      <button class="filt g3" onclick="filt('legian','opt',this)">⭐ Optional</button>
+    </div>
+  </div>
+
+  <div class="activities" id="legian-cards"></div>
+
+  <div class="budget-title">📊 Budget Snapshot</div>
+  <div class="budget-wrap">
+    <table class="btbl"><thead><tr><th>Day type</th><th>Approx. per person</th></tr></thead><tbody>
+      <tr><td>Relaxed beach + spa day</td><td>R200–R600</td></tr>
+      <tr><td>Active day (surf + Waterbom)</td><td>R800–R1,100</td></tr>
+      <tr><td>Temple trip (Uluwatu or Tanah Lot)</td><td>R300–R650</td></tr>
+      <tr><td>Beach club sundowner incl. drinks</td><td>R450–R900</td></tr>
+      <tr><td>Jimbaran seafood dinner</td><td>R350–R600</td></tr>
+      <tr><td>Snorkeling day trip</td><td>R566–R809</td></tr>
+    </tbody></table>
+  </div>
+</section>
+
+<!-- ─── UBUD ─── -->
+<section class="tab-panel" id="tab-ubud">
+  <div class="section-hdr gold">
+    <div class="section-hdr-icon gold">🌿</div>
+    <div>
+      <h2>Ubud</h2>
+      <p>15–19 May 2027 · 4 nights · Sakti Garden Resort &amp; Spa</p>
+    </div>
+  </div>
+
+  <div class="filter-wrap">
+    <div class="filter-label-text">Show me:</div>
+    <div class="filter-btns">
+      <button class="filt on" onclick="filt('ubud','all',this)">All 10</button>
+      <button class="filt" onclick="filt('ubud','must',this)">⭐⭐⭐ Must Do</button>
+      <button class="filt g2" onclick="filt('ubud','rec',this)">⭐⭐ Recommended</button>
+      <button class="filt g3" onclick="filt('ubud','opt',this)">⭐ Optional</button>
+    </div>
+  </div>
+
+  <div class="activities" id="ubud-cards"></div>
+
+  <div class="budget-title gold">📊 Budget Snapshot</div>
+  <div class="budget-wrap">
+    <table class="btbl gold"><thead><tr><th>Day type</th><th>Approx. per person</th></tr></thead><tbody>
+      <tr><td>Free/low-cost day (ridge walk + market + temples)</td><td>R200–R400</td></tr>
+      <tr><td>Cooking class — top-rated private</td><td>R1,117–R1,262</td></tr>
+      <tr><td>ATV quad biking</td><td>R485–R647</td></tr>
+      <tr><td>River rafting (includes lunch)</td><td>R388–R566</td></tr>
+      <tr><td>Monkey Forest + Tegallalang + dance show</td><td>R350–R550</td></tr>
+      <tr><td>Cretya Ubud jungle day club</td><td>R323–R526</td></tr>
+    </tbody></table>
+  </div>
+</section>
+
+<!-- ─── MY PLAN ─── -->
+<section class="tab-panel" id="tab-plan">
+  <div class="section-hdr">
+    <div class="section-hdr-icon teal">📋</div>
+    <div>
+      <h2>My Plan</h2>
+      <p>Tap <strong>+ Add to Plan</strong> on any activity to save it here</p>
+    </div>
+  </div>
+  <div id="plan-content"></div>
+</section>
+
+<!-- ─── TIPS ─── -->
+<section class="tab-panel" id="tab-tips">
+  <div class="section-hdr">
+    <div class="section-hdr-icon teal">💡</div>
+    <div><h2>Tips for the Trip</h2><p>The stuff travel guides often forget to tell you</p></div>
+  </div>
+  <div class="tips-list">
+    <div class="tip-item"><span class="tip-icon">💵</span><div class="tip-text"><strong>Cash is king in Bali.</strong> Get IDR at airport ATMs on arrival or at BCA/BNI/Mandiri ATMs in town. Never use beach money changers — they are routinely dishonest. Most beach spas, markets and temple entries are cash only.</div></div>
+    <div class="tip-item"><span class="tip-icon">📱</span><div class="tip-text"><strong>Download Grab before you fly.</strong> It's Bali's Uber — honest prices, no negotiating, no getting ripped off. Set it up at home and link a card so you're ready on arrival. A must.</div></div>
+    <div class="tip-item"><span class="tip-icon">🙏</span><div class="tip-text"><strong>Temple dress code:</strong> Shoulders and knees must be covered at all temples. Sarongs are provided at most sites for free or a small IDR 15,000 rental fee. It's non-negotiable — guards will stop you at the gate.</div></div>
+    <div class="tip-item"><span class="tip-icon">💬</span><div class="tip-text"><strong>WhatsApp runs Bali.</strong> All local tour operators, drivers and restaurants communicate via WhatsApp. Save numbers as you go — it's the easiest way to confirm bookings and negotiate prices.</div></div>
+    <div class="tip-item"><span class="tip-icon">🛍️</span><div class="tip-text"><strong>Bargaining at markets is expected.</strong> Start at 30–40% of the opening price and work from there — it's fun, not rude. Never bargain at restaurants with printed menus or branded retail.</div></div>
+    <div class="tip-item"><span class="tip-icon">💧</span><div class="tip-text"><strong>Never drink tap water.</strong> Buy large 5L water jugs at the nearest 7-Eleven for around IDR 5,000 (±R5) — much cheaper than individual bottles. Refill from your hotel water station where possible.</div></div>
+    <div class="tip-item"><span class="tip-icon">💆</span><div class="tip-text"><strong>Tipping:</strong> Not mandatory but appreciated. IDR 20,000–50,000 (R18–R45) per person is generous for masseuses, private drivers and tour guides. It makes a real difference to their income.</div></div>
+    <div class="tip-item"><span class="tip-icon">🌡️</span><div class="tip-text"><strong>May = perfect weather.</strong> Start of Bali's dry season — 28–32°C, low humidity, minimal rain. One of the best months to visit. Pack sunscreen (reef-safe is preferred near the ocean), light cotton and a thin layer for the evenings in Ubud.</div></div>
+  </div>
+</section>
+
+<!-- ─── SOURCES ─── -->
+<section class="tab-panel" id="tab-sources">
+  <div class="section-hdr">
+    <div class="section-hdr-icon teal">🔗</div>
+    <div><h2>Sources &amp; Research Links</h2><p>All research independently done — no promos, no affiliate links, no clickbait</p></div>
+  </div>
+  <div class="sources-intro">✅ Every activity's price and information was verified across multiple traveller forums, operator websites and trusted review sites in June 2026. Sources linked for you to double-check closer to travel.</div>
+  <div class="src-list" id="sources-list"></div>
+  <div class="currency-note">💱 Exchange rates: 1 USD ≈ R16.18 ZAR · 1 IDR ≈ R0.0009 ZAR (June 2026). These will change by May 2027 — re-check a month or two before travel.</div>
+</section>
+
+</div><!-- /page -->
+
+<!-- Floating confirmation toast -->
+<div class="float-tip" id="toast"></div>
+
+<script>
+// ── DATA ─────────────────────────────────────────────────────────────────────
+const LEGIAN = [
+  { id:'L1',rk:'must',r:'⭐⭐⭐',rl:'MUST DO',
+    name:'Uluwatu Temple & Kecak Fire Dance',
+    tips:'Perched on 70m cliffs above the Indian Ocean. The Kecak fire dance at sunset (18:00 & 19:00) is one of the most iconic things you can do in Bali — book the sunset slot for magical light. Shared tours with hotel pickup available (~1hr from Legian). Monkeys are cheeky here — secure your sunglasses and jewellery!',
+    flags:[{l:'📅 BOOK AHEAD',d:'sunset slots sell out — book at least a day before',t:'warn'},{l:'🕌 Sarong required',d:'usually provided free at the gate',t:'info'},{l:'💵 Cash for entry',d:'IDR 50K temple + IDR 150K dance ticket',t:'cash'}],
+    price:'±R485–R647\n(~USD 30–40)\nShared tour incl. entry',
+    ll:'Bali Untold Review',url:'https://baliuntold.com/destinations/kuta/things-to-do/'
+  },
+  { id:'L2',rk:'must',r:'⭐⭐⭐',rl:'MUST DO',
+    name:'Tanah Lot Temple Sunset',
+    tips:"Bali's most iconic sunset backdrop — a sacred Hindu temple perched on a sea rock surrounded by crashing waves. About 45min drive from Legian. Tip: hire a private driver for the whole group (IDR 400–500K total, split 4 ways = R91–114 each) — far cheaper than guided tours.",
+    flags:[{l:'🌅 Arrive by 17:00',d:'crowds build fast at sunset — earlier is better',t:'warn'},{l:'💵 Cash for entry',d:'IDR 75K per person + IDR 5K parking',t:'cash'}],
+    price:'±R160–R250/person\n(driver split + entry)\nor ±R400 guided tour',
+    ll:'Tanah Lot Entry Guide',url:'https://www.baliholidaysecrets.com/tanah-lot-temple/'
+  },
+  { id:'L3',rk:'must',r:'⭐⭐⭐',rl:'MUST DO',
+    name:'Beach Club Sundowner — Potato Head or Ku De Ta',
+    tips:"Potato Head Beach Club (Seminyak, ~3km away): IDR 250,000 cover charge, fully redeemable on food and drinks — so you're basically paying for what you consume. Ku De Ta: no entry fee, minimum spend on daybeds only. Both are spectacular at sunset. Use Grab to get there.",
+    flags:[{l:'📅 Arrive early',d:"fills up — aim for 16:30–17:00 or reserve a daybed online",t:'warn'},{l:'⚠️ Drinks are pricey',d:'budget R150–R230 per cocktail on top of the cover charge',t:'warn'}],
+    price:'±R228–R900\nPotato Head cover: ±R228\n(fully redeemable on F&B)',
+    ll:'Seminyak Guide',url:'https://www.baliholidaysecrets.com/things-to-do-in-seminyak/'
+  },
+  { id:'L4',rk:'must',r:'⭐⭐⭐',rl:'MUST DO',
+    name:'Traditional Balinese Spa & Massage',
+    tips:"Skip the hotel spa — Bali's side-street spas are far better value and genuinely excellent. Budget: IDR 85–150K for a 60-min Balinese massage. Mid-range treat: IDR 300–450K for 90-min massage + flower bath + body scrub. Ask your hotel reception to recommend a trusted nearby option.",
+    flags:[{l:'⚠️ Avoid beach touts',d:'unsolicited massage touts on the beach are substandard and overpriced',t:'warn'},{l:'💵 Cash expected',d:'budget spas rarely accept card',t:'cash'}],
+    price:'±R77–R137 budget\n±R273–R409 mid-range\n±R910+ hotel luxury',
+    ll:'Seminyak Spa Options',url:'https://baliuntold.com/destinations/seminyak/things-to-do/'
+  },
+  { id:'L5',rk:'must',r:'⭐⭐⭐',rl:'MUST DO',
+    name:'Jimbaran Bay Beachfront Seafood Dinner',
+    tips:'Sand-side tables, gentle live music and incredibly fresh grilled seafood at sunset. Fish and prawns are priced by weight — agree the price BEFORE they take your order. Skip the first row of restaurants (most touristy) and walk a bit further along for better value. About 20min from Legian.',
+    flags:[{l:'🌅 Go at sunset',d:'the full experience — arrange a Grab or private car in advance',t:'info'},{l:'⚠️ Negotiate price first',d:'agree cost BEFORE ordering — seafood is priced by weight',t:'warn'}],
+    price:'±R243–R566/person\nBudget ±R400 for\na good meal + drinks',
+    ll:'Jimbaran Seafood Guide',url:'https://www.water-sports-bali.com/jimbaran-seafood-dinner/'
+  },
+  { id:'L6',rk:'rec',r:'⭐⭐',rl:'RECOMMENDED',
+    name:'Surf Lesson — Legian or Kuta Beach',
+    tips:"2-hour beginner group lesson on gentle waves with a sandy bottom — no reef cuts, no experience needed. Board, instructor and basic insurance are all included. Walk-ins welcome on the beach or book via your hotel. Kuta Beach is about 2km from your hotel. Great fun even if you've never surfed before!",
+    flags:[{l:'📅 Go early morning',d:'beach gets crowded and very hot by 11:00',t:'info'}],
+    price:'±R405–R566\n(~USD 25–35)\nGroup lesson incl. board',
+    ll:'Bali Buddies Guide',url:'https://balibuddies.com/best-things-to-do-in-kuta-and-legian/'
+  },
+  { id:'L7',rk:'rec',r:'⭐⭐',rl:'RECOMMENDED',
+    name:'Waterbom Bali Water Park',
+    tips:"Asia's #1 rated water park — 26 slides from a gentle lazy river to near-vertical drops. Located in Kuta, about 2km from your hotel. A brilliant afternoon activity. Open 09:00–18:00. Budget a bit extra for food and lockers on the day.",
+    flags:[{l:'📅 Book online first',d:'10–15% cheaper than walk-in — book directly on their website',t:'info'},{l:'💵 Cash for lockers/food',d:'IDR 25K for a locker; food stalls inside are cash only',t:'cash'}],
+    price:'±R400–R450\n(~USD 25–28)\nAdult full-day pass',
+    ll:'Waterbom Official',url:'https://www.waterbom-bali.com/'
+  },
+  { id:'L8',rk:'rec',r:'⭐⭐',rl:'RECOMMENDED',
+    name:'Snorkeling Day Trip — Blue Lagoon or Nusa Lembongan',
+    tips:'Blue Lagoon (Padang Bai, ~1.5hr east): shallow clear water, excellent for beginners, colourful coral and fish. Nusa Lembongan (~30min fast boat from Sanur): famous for manta ray snorkeling and stunning island scenery. Book with a small local operator for better prices than big booking platforms.',
+    flags:[{l:'📅 Book 1–2 days ahead',d:'good operators fill quickly — especially on weekends',t:'info'},{l:'💵 Bring cash',d:'for drinks, snacks and food on the island / boat',t:'cash'}],
+    price:'±R566–R809\n(~USD 35–50)\nIncludes boat & equipment',
+    ll:'GetYourGuide Legian',url:'https://www.getyourguide.com/legian-l174244/'
+  },
+  { id:'L9',rk:'rec',r:'⭐⭐',rl:'RECOMMENDED',
+    name:'Seminyak Shopping & Café-Hopping',
+    tips:"Seminyak's main strip (Jl. Oberoi / Laksmana): boutiques, bespoke fashion, gorgeous homewares and jewellery. Great for custom-made clothes — order on day 2 or 3 for a 2–3 day turnaround. A Bali sarong costs IDR 50–100K. A lovely iced coffee: IDR 35–80K. Free to browse and stroll.",
+    flags:[{l:'💵 Markets are cash only',d:'boutiques and larger shops usually accept card',t:'cash'},{l:'⚠️ Bargain at open markets',d:'opening price is typically 3× the real value — start at 30% of ask',t:'warn'}],
+    price:'Free to browse\nCoffee: ±R32–R73\nLunch: ±R91–R228',
+    ll:'Seminyak Shopping',url:'https://baliuntold.com/destinations/seminyak/things-to-do/'
+  },
+  { id:'L10',rk:'opt',r:'⭐',rl:'OPTIONAL',
+    name:'Scooter Rental & Explore Canggu',
+    tips:'A fun way to explore independently. IDR 60–100K/day per scooter, and 2 people can share. Canggu (~15min drive): uber-trendy cafés, surf culture and Echo Beach. Go in the morning before traffic builds up. Always wear the helmet provided.',
+    flags:[{l:'⚠️ IDP technically required',d:'police do stop tourists occasionally — carry your licence',t:'warn'},{l:'⚠️ Traffic can be intense',d:'ride cautiously, especially in Kuta and Canggu at peak times',t:'warn'}],
+    price:'±R55–R91/day\nper scooter\n(2 people share)',
+    ll:'Legian & Kuta Tips',url:'https://balibuddies.com/best-things-to-do-in-kuta-and-legian/'
+  }
+];
+
+const UBUD = [
+  { id:'U1',rk:'must',r:'⭐⭐⭐',rl:'MUST DO',
+    name:'Balinese Cooking Class',
+    tips:"Top-rated: Putu's Private Cooking Class (USD 78/person) — exclusively 5-star reviews, held in a real village family compound. Also excellent: Dewa's Private Class (USD 69). Budget option with market visit from USD 26. Most classes include hotel pickup, fresh produce market visit and a full lunch you cook yourself.",
+    flags:[{l:'📅 BOOK AHEAD',d:'top classes fill weeks in advance during peak season — book early',t:'warn'},{l:'⏰ Half-day commitment',d:'classes typically run 09:00–14:00',t:'info'}],
+    price:'±R421–R631 (budget)\n±R1,117–R1,262\n(top private class)',
+    ll:'Best Cooking Class Review',url:'https://destinationlesstravel.com/best-ubud-cooking-class-review/'
+  },
+  { id:'U2',rk:'must',r:'⭐⭐⭐',rl:'MUST DO',
+    name:'Campuhan Ridge Walk',
+    tips:'A completely FREE 9km ridge walk through lush jungle and rice paddies with breathtaking valley views — one of the most beautiful walks in Bali. Start from Jl. Raya Campuhan near the Ubud town centre. Best before 08:00 to beat the heat and catch the light. Bring water and sunscreen. Several lovely warungs along the route for a coffee stop.',
+    flags:[{l:'🌅 Start before 07:00',d:'for sunrise views and cool temperatures — it gets very hot by 09:00',t:'info'},{l:'⚠️ Wear proper shoes',d:'the path can be slippery when damp',t:'warn'}],
+    price:'FREE 🎉\nBudget ±R50–R100\nfor a coffee & snack',
+    ll:'Ubud Ridge Walk Guide',url:'https://destinationlesstravel.com/things-to-do-ubud-bali/'
+  },
+  { id:'U3',rk:'must',r:'⭐⭐⭐',rl:'MUST DO',
+    name:'Traditional Dance at Ubud Palace',
+    tips:"Puri Saren (Ubud Palace) hosts stunning Legong and Kecak dance performances every evening in a candlelit open-air royal courtyard from 19:30. Genuinely beautiful — locals attend, not just tourists. Buy tickets at the gate; arrive 20 minutes early for the best seats. Check the board outside for that night's programme.",
+    flags:[{l:'💵 Cash only at gate',d:'buy tickets on arrival — no online booking needed or available',t:'cash'},{l:'🕌 Smart-casual appropriate',d:"you're attending a performance in a royal palace compound",t:'info'}],
+    price:'±R91–R137\n(IDR 100–150K)\nper person',
+    ll:'Ubud Things To Do',url:'https://destinationlesstravel.com/things-to-do-ubud-bali/'
+  },
+  { id:'U4',rk:'must',r:'⭐⭐⭐',rl:'MUST DO',
+    name:'Cretya Ubud Jungle Day Club',
+    tips:"Bali's most spectacular jungle pool bar — multiple terraced infinity pools suspended over a river gorge, completely surrounded by rainforest canopy. The cocktails and food are excellent. VIP daybed for 2: ~USD 65 (±R1,052), fully redeemable on food and drinks. General with sun lounger: ~USD 20–30/person. An unforgettable afternoon.",
+    flags:[{l:'📅 BOOK AHEAD',d:'fills up fast, especially weekends — book online in advance',t:'warn'},{l:'⚠️ No outside food or drinks',d:'strictly enforced on-site',t:'warn'}],
+    price:'±R323–R485 (general)\n±R526/person (VIP)\nMin spend included',
+    ll:'Ubud Day Club Guide',url:'https://destinationlesstravel.com/things-to-do-ubud-bali/'
+  },
+  { id:'U5',rk:'must',r:'⭐⭐⭐',rl:'MUST DO',
+    name:'Tegallalang Rice Terraces & Bali Swing',
+    tips:'UNESCO-listed stepped emerald rice terraces about 9km north of Ubud. Entry IDR 20–25K. Multiple swing operators line the ridge — prices range IDR 100–350K depending on height and view. Compare before you pay. Beautiful for photos. The nesting chairs and infinity pool shots are a bonus at most operators too.',
+    flags:[{l:'🌅 Before 09:00 for best light',d:'far fewer crowds and gorgeous golden morning light',t:'info'},{l:'⚠️ Compare swing operators',d:"multiple options on the ridge — don't pay the first asking price",t:'warn'},{l:'💵 Mostly cash',d:"a few accept card but don't rely on it",t:'cash'}],
+    price:'±R18–R23 entry\n±R91–R318 swing\nTransport: ±R91–R137',
+    ll:'Tegallalang Entry Info',url:'https://www.ubudcenter.com/tegalalang-rice-terrace/'
+  },
+  { id:'U6',rk:'rec',r:'⭐⭐',rl:'RECOMMENDED',
+    name:'Sacred Monkey Forest Sanctuary',
+    tips:'700+ playful long-tailed macaques living among three beautiful ancient temples in a dense green forest. Walk slowly and calmly — don\'t try to touch them. Open 09:00–18:00 (last entry 17:00). The sanctuary is at the south end of Monkey Forest Road, walkable from most Ubud hotels.',
+    flags:[{l:'🐒 Secure EVERYTHING',d:'monkeys WILL steal sunglasses, snacks, hair clips, anything shiny',t:'warn'},{l:'💵 Cash for entry',d:'pay at the gate — IDR 80K weekdays, IDR 100K weekends',t:'cash'}],
+    price:'±R73–R91\n(IDR 80–100K)\nWeekday / Weekend',
+    ll:'Destinationless Travel',url:'https://destinationlesstravel.com/things-to-do-ubud-bali/'
+  },
+  { id:'U7',rk:'rec',r:'⭐⭐',rl:'RECOMMENDED',
+    name:'ATV Quad Biking Tour',
+    tips:'A brilliant activity — drive through jungle trails, rice paddy fields, a river crossing and a sacred cave on quad bikes. Solo ATV from USD 36/person; tandem (2 per quad) from USD 30 each. Many operators on the Ubud road. Book through your hotel or local operator for better pricing than Viator/GetYourGuide.',
+    flags:[{l:'⚠️ Helmets compulsory',d:'instruction provided at the start — it\'s very easy to pick up',t:'warn'},{l:'💵 Book locally',d:'significantly cheaper than online booking platforms',t:'cash'}],
+    price:'±R485–R647\n(~USD 30–40/person)\nIncludes guide & gear',
+    ll:'ATV & Rafting Prices',url:'https://www.ubudcenter.com/ubud-rafting-atv-quad-bike/'
+  },
+  { id:'U8',rk:'rec',r:'⭐⭐',rl:'RECOMMENDED',
+    name:'Ayung River White Water Rafting',
+    tips:'Grade 2–3 rapids through a spectacular jungle river gorge with waterfalls — genuinely exciting but not too extreme, suitable for complete first-timers. About 10km on the water, roughly 2 hours. Most packages include hotel pickup, full gear, lunch and showers afterwards. Can be combined with ATV for a full adventure day.',
+    flags:[{l:'⚠️ Not suitable if pregnant',d:'or with serious back or heart conditions — check with the operator',t:'warn'},{l:'📅 Morning recommended',d:'afternoon sessions get busier and hotter',t:'info'}],
+    price:'±R388–R566\n(~USD 24–35)\nIncludes lunch & transfers',
+    ll:'Ayung Rafting + ATV',url:'https://bali-river-rafting.com/ayung-rafting-and-ubud-atv-ride.html'
+  },
+  { id:'U9',rk:'rec',r:'⭐⭐',rl:'RECOMMENDED',
+    name:'Tirta Empul & Goa Gajah (Elephant Cave)',
+    tips:"Tirta Empul: a living, active Hindu temple where Balinese locals come daily to bathe in sacred natural spring pools — genuinely moving to witness. Goa Gajah: a stunning 9th-century cave temple with terraced ravine gardens (UNESCO listed). They're close to each other — hire a private driver for a half-day trip.",
+    flags:[{l:'🕌 Sarong required',d:'provided at both temples — free or IDR 15–20K rental',t:'info'},{l:'💵 Cash for entry + driver tip',d:'Tirta Empul IDR 50K, Goa Gajah IDR 50K per person',t:'cash'},{l:'⚠️ Be respectful at Tirta Empul',d:'it is an active place of worship, not just a tourist attraction',t:'warn'}],
+    price:'Tirta Empul: ±R46\nGoa Gajah: ±R46\nDriver half-day: ±R68–R91\n(split 4 ways)',
+    ll:'Ubud Temples Info',url:'https://www.ubudcenter.com/'
+  },
+  { id:'U10',rk:'rec',r:'⭐⭐',rl:'RECOMMENDED',
+    name:'Ubud Art Market & Jl. Hanoman Shopping',
+    tips:"Pasar Ubud (right beside Ubud Palace): batik fabric, hand-carved woodwork, handmade jewellery and colourful sarongs. Bargain hard — offer 30–40% of the opening price and work from there. Jl. Hanoman is the more relaxed alternative: boutiques, bookshops and great little warungs at fairer prices.",
+    flags:[{l:'💵 Market is cash only',d:'take IDR notes in small denominations',t:'cash'},{l:'⚠️ Opening prices are 3× real value',d:"bargain confidently — it's expected and genuinely fun",t:'warn'}],
+    price:'Free to browse\nSarong: ±R46–R91\nBatik dress: ±R91–R273\nJewellery: from ±R50',
+    ll:'Ubud Market & Shopping',url:'https://destinationlesstravel.com/things-to-do-ubud-bali/'
+  }
+];
+
+const SOURCES = [
+  ['Bali Buddies — Best Things to Do in Kuta & Legian','https://balibuddies.com/best-things-to-do-in-kuta-and-legian/'],
+  ['Bali Untold — Things to Do in Kuta','https://baliuntold.com/destinations/kuta/things-to-do/'],
+  ['Bali Untold — Things to Do in Seminyak','https://baliuntold.com/destinations/seminyak/things-to-do/'],
+  ['Bali Holiday Secrets — Things to Do in Seminyak','https://www.baliholidaysecrets.com/things-to-do-in-seminyak/'],
+  ['Bali Holiday Secrets — Tanah Lot Temple Guide','https://www.baliholidaysecrets.com/tanah-lot-temple/'],
+  ['Water Sports Bali — Tanah Lot Entrance Fee','https://www.water-sports-bali.com/tanah-lot-temple-entrance-fee/'],
+  ['Water Sports Bali — Jimbaran Seafood Dinner Guide','https://www.water-sports-bali.com/jimbaran-seafood-dinner/'],
+  ['Waterbom Bali — Official Website','https://www.waterbom-bali.com/'],
+  ['GetYourGuide — Legian Tours & Activities','https://www.getyourguide.com/legian-l174244/'],
+  ['TripAdvisor — Best Things to Do in Legian','https://www.tripadvisor.com/Attractions-g608487-Activities-Legian_Kuta_District_Bali.html'],
+  ['TripAdvisor — Best Things to Do in Seminyak','https://www.tripadvisor.com/Attractions-g469404-Activities-Seminyak_Kuta_District_Bali.html'],
+  ['Destinationless Travel — Best Things to Do in Ubud','https://destinationlesstravel.com/things-to-do-ubud-bali/'],
+  ['Destinationless Travel — Best Ubud Cooking Class Review','https://destinationlesstravel.com/best-ubud-cooking-class-review/'],
+  ['Ubud Center — Tegallalang Rice Terrace','https://www.ubudcenter.com/tegalalang-rice-terrace/'],
+  ['Ubud Center — ATV & Rafting Prices','https://www.ubudcenter.com/ubud-rafting-atv-quad-bike/'],
+  ['Ubud Center — Jimbaran Bay Seafood','https://www.ubudcenter.com/jimbaran-bay-seafood/'],
+  ['Bali River Rafting — Ayung Rafting + ATV Package','https://bali-river-rafting.com/ayung-rafting-and-ubud-atv-ride.html'],
+  ['Viator — Ubud Cooking Classes','https://www.viator.com/Ubud-tours/Cooking-Classes/d5467-g6-c19'],
+  ['TripAdvisor — Best Ubud ATV Tours','https://www.tripadvisor.com/Attractions-g297701-Activities-c61-t211-Ubud_Gianyar_Regency_Bali.html'],
+  ['Seven Paintings — Food Costs in Bali 2026','https://sevenpaintingsubud.com/blog/how-much-does-food-really-cost-in-bali-2026/']
+];
+
+// ── STATE ────────────────────────────────────────────────────────────────────
+let plan = JSON.parse(localStorage.getItem('bali-plan')||'[]');
+let notes = JSON.parse(localStorage.getItem('bali-notes')||'{}');
+let planMeta = JSON.parse(localStorage.getItem('bali-plan-meta')||'{}');
+
+function save() {
+  localStorage.setItem('bali-plan', JSON.stringify(plan));
+  localStorage.setItem('bali-notes', JSON.stringify(notes));
+  localStorage.setItem('bali-plan-meta', JSON.stringify(planMeta));
+}
+
+// ── TOAST ────────────────────────────────────────────────────────────────────
+let toastTimer;
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+// ── CARD RENDER ──────────────────────────────────────────────────────────────
+function renderCards(containerId, data, loc) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = data.map((a, i) => {
+    const ip = plan.includes(a.id);
+    const hasNote = notes[a.id] && notes[a.id].trim();
+    return `<div class="act-card ${ip?'planned':''}" id="card-${a.id}" data-rk="${a.rk}">
+  <div class="act-top">
+    <div class="act-num">${i+1}</div>
+    <div class="act-meta">
+      <div class="act-name">${a.name}</div>
+      <div class="act-rating-row">
+        <span class="act-stars">${a.r}</span>
+        <span class="act-rlabel ${a.rk}">${a.rl}</span>
+      </div>
+    </div>
+  </div>
+  <div class="act-mid">
+    <div class="act-tips">${a.tips}</div>
+    <div class="act-flags">${a.flags.map(f=>`<span class="flag ${f.t}"><span class="flbl">${f.l}</span> <span class="fdsc">— ${f.d}</span></span>`).join('')}</div>
+  </div>
+  <div class="act-notes">
+    <button class="notes-tog" onclick="toggleNotes('${a.id}')">${hasNote?'✏️ Edit my note':'📝 Add a note for the group'}</button>
+    <textarea class="notes-ta${hasNote?' show':''}" id="notes-${a.id}" placeholder="Add notes here — e.g. 'We want to do this on Day 3' or 'Check if Zara can swim'"
+      onchange="saveNote('${a.id}')" onblur="saveNote('${a.id}')">${notes[a.id]||''}</textarea>
+    <div class="notes-ok" id="ok-${a.id}">✓ Saved</div>
+  </div>
+  <div class="act-bottom">
+    <div class="act-price">${a.price}</div>
+    <div class="act-actions">
+      <a class="btn-source" href="${a.url}" target="_blank" rel="noopener">🔗 ${a.ll} ↗</a>
+      <button class="btn-add${ip?' on':''}" onclick="togglePlan('${a.id}','${loc}',\`${a.name.replace(/`/g,"'")}\`,\`${a.price.replace(/`/g,"'")}\`)">
+        ${ip?'✓ In My Plan':'+ Add to Plan'}
+      </button>
+    </div>
+  </div>
+</div>`;
+  }).join('');
+}
+
+// ── FILTER ───────────────────────────────────────────────────────────────────
+function filt(loc, key, btn) {
+  document.querySelectorAll(`#tab-${loc} .filt`).forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll(`#${loc}-cards .act-card`).forEach(c=>{
+    c.style.display = (key==='all'||c.dataset.rk===key)?'':'none';
+  });
+}
+
+// ── NOTES ────────────────────────────────────────────────────────────────────
+function toggleNotes(id) {
+  const ta = document.getElementById(`notes-${id}`);
+  ta.classList.toggle('show');
+  if (ta.classList.contains('show')) { ta.focus(); ta.setSelectionRange(ta.value.length,ta.value.length); }
+}
+function saveNote(id) {
+  notes[id] = document.getElementById(`notes-${id}`).value;
+  save();
+  const ok = document.getElementById(`ok-${id}`);
+  ok.style.display='block';
+  setTimeout(()=>ok.style.display='none',1500);
+}
+
+// ── PLAN ─────────────────────────────────────────────────────────────────────
+function togglePlan(id, loc, name, price) {
+  const adding = !plan.includes(id);
+  if (adding) {
+    plan.push(id);
+    planMeta[id] = {loc, name, price};
+    toast('✅ Added to My Plan!');
+  } else {
+    plan = plan.filter(x=>x!==id);
+    delete planMeta[id];
+    toast('Removed from plan');
+  }
+  save();
+  updateBadge();
+  // Update card button
+  const card = document.getElementById(`card-${id}`);
+  if (card) {
+    card.classList.toggle('planned', adding);
+    const btn = card.querySelector('.btn-add');
+    btn.classList.toggle('on', adding);
+    btn.textContent = adding ? '✓ In My Plan' : '+ Add to Plan';
+  }
+}
+
+function updateBadge() {
+  const b = document.getElementById('plan-badge');
+  b.textContent = plan.length;
+  b.dataset.count = plan.length;
+}
+
+function renderPlan() {
+  const el = document.getElementById('plan-content');
+  if (!plan.length) {
+    el.innerHTML = `<div class="plan-empty">
+      <span class="big-emoji">🌺</span>
+      <h3>Your plan is empty</h3>
+      <p>Head over to <strong>Legian</strong> or <strong>Ubud</strong> and tap <strong>+ Add to Plan</strong> on any activity you want to do. They'll appear here!</p>
+    </div>`;
+    return;
+  }
+  const legItems = plan.filter(id=>planMeta[id]?.loc==='Legian');
+  const ubItems  = plan.filter(id=>planMeta[id]?.loc==='Ubud');
+  let html = '';
+
+  const renderItem = id => {
+    const m = planMeta[id]||{};
+    return `<div class="plan-item">
+      <div class="plan-item-text">
+        <div class="plan-item-name">${m.name||id}</div>
+        <div class="plan-item-loc">${m.loc==='Legian'?'🏖 Legian, Kuta & Seminyak':'🌿 Ubud'}</div>
+      </div>
+      <div class="plan-item-price">${m.price||''}</div>
+      <button class="plan-remove" onclick="togglePlan('${id}','${m.loc||''}',\`${(m.name||'').replace(/`/g,"'")}\`,\`${(m.price||'').replace(/`/g,"'")}\`)" title="Remove">✕</button>
+    </div>`;
+  };
+
+  if (legItems.length) {
+    html += `<div class="plan-loc-title">🏖️ Legian (${legItems.length} activit${legItems.length===1?'y':'ies'})</div>`;
+    html += `<div class="plan-items">${legItems.map(renderItem).join('')}</div>`;
+  }
+  if (ubItems.length) {
+    html += `<div class="plan-loc-title">🌿 Ubud (${ubItems.length} activit${ubItems.length===1?'y':'ies'})</div>`;
+    html += `<div class="plan-items">${ubItems.map(renderItem).join('')}</div>`;
+  }
+  html += `<div class="plan-summary">
+    <strong>${plan.length} activit${plan.length===1?'y':'ies'} saved</strong> across ${[legItems.length&&'Legian',ubItems.length&&'Ubud'].filter(Boolean).join(' & ')}.
+    <p>You can add notes to each activity (in the Legian / Ubud tabs) to log group decisions, preferred timing or booking reminders.</p>
+  </div>`;
+  el.innerHTML = html;
+}
+
+// ── SOURCES ──────────────────────────────────────────────────────────────────
+function renderSources() {
+  document.getElementById('sources-list').innerHTML = SOURCES.map((s,i)=>`
+    <div class="src-item">
+      <span class="src-n">[${i+1}]</span>
+      <div class="src-info">
+        <div class="src-name">${s[0]}</div>
+        <a class="src-link" href="${s[1]}" target="_blank" rel="noopener">${s[1]}</a>
+      </div>
+    </div>`).join('');
+}
+
+// ── TABS ─────────────────────────────────────────────────────────────────────
+const TABS = ['overview','legian','ubud','plan','tips','sources'];
+function go(key, btn) {
+  TABS.forEach(t=>{
+    document.getElementById(`tab-${t}`).classList.remove('active');
+  });
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(`tab-${key}`).classList.add('active');
+  if (btn) btn.classList.add('active');
+  if (key==='plan') renderPlan();
+  window.scrollTo({top: document.querySelector('.nav-bar').offsetTop - 1, behavior:'smooth'});
+}
+
+// ── INIT ─────────────────────────────────────────────────────────────────────
+renderCards('legian-cards', LEGIAN, 'Legian');
+renderCards('ubud-cards', UBUD, 'Ubud');
+renderSources();
+updateBadge();
+// Re-hydrate plan meta for any IDs without stored meta
+plan.forEach(id=>{
+  if (!planMeta[id]) {
+    const all=[...LEGIAN,...UBUD];
+    const a=all.find(x=>x.id===id);
+    if(a) planMeta[id]={loc:id.startsWith('L')?'Legian':'Ubud',name:a.name,price:a.price};
+  }
+});
+save();
+</script>
+</body>
+</html>
